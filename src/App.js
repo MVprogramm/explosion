@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import bomb from "./bomb.png";
 import explosion from "./explosion.png";
 import "./App.css";
@@ -22,7 +23,7 @@ function App() {
       snd.play();
       setTimeout(() => {
         setExplosion(false);
-      }, 1000);
+      }, 4000);
     }, 5000);
   };
 
@@ -34,7 +35,16 @@ function App() {
         ) : (
           <img src={explosion} className="img explosion" alt="explosion" />
         )}
-        <button onClick={explosionTimer}>Answering</button>
+        <div className="buttons">
+          <button onClick={explosionTimer}>Answering</button>
+          <button
+            onClick={() => {
+              location.reload(true);
+            }}
+          >
+            Reload
+          </button>
+        </div>
       </header>
     </div>
   );
